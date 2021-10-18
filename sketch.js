@@ -6,7 +6,6 @@
 // - describe what you did to take this project "above and beyond"
 
 
-let carlsLeftBootyCheeksStinky = 100;
 
 
 function setup() {
@@ -14,7 +13,9 @@ function setup() {
 }
 
 function draw() {
-  backgdound('aqua');
-  rect(mouseX,mouseY,carlsLeftBootyCheeksStinky,100);
+  background("aqua");
+  for (let i=0; i<10; i++){
+    rect(50*i,10*i,50,100);
+  }
 }
 
