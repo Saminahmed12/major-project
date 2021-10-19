@@ -1,6 +1,6 @@
 # Major Project Proposal
 
-Zombie Shooter- 2d game where the player has to survive a zombie appocalypse, all the player has is a gun, and there is zombies coming from left and right. The player must try to kill the zombies in order to keep himself alive, killing zombies will earn the player points which can be exchanged for points.
+Zombie Shooter- 2d game where the player has to survive a zombie appocalypse, all the player has is a gun, and there is zombies coming from left and right. The player must try to kill the zombies in order to keep himself alive, killing zombies will earn the player points which can be exchanged for guns, new scenary, and new characters.
 
 
 ## Must haves list
