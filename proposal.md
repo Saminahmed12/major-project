@@ -11,7 +11,7 @@ Zombie Shooter- 2d game where the player has to survive a zombie appocalypse, al
 - death/game over screen
 - start screen
 ## Nice to have list
-
+- different zombies
 - differenrt skins, guns, background, exchange points for skins,guns,background
 - levels, waves (certain waves = level complete)
 - reload gun
