@@ -6,7 +6,7 @@
 // - describe what you did to take this project "above and beyond"
 
 
-let level = 2; 
+let level = 3; 
 // university
 let levelOneBg;
 
@@ -24,9 +24,8 @@ let zombie4;
 let zombie5;
 let zombie6;
 
-// zombie size
-let zombieH = 100;
-let zombieW = 80;
+let zombie;
+
 
 function preload() {
   // preloadImages
@@ -48,6 +47,9 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  // new zombies
+  zombie = new Zombies(random(width),height-100);
 }
 
 function draw() {
@@ -63,9 +65,23 @@ function draw() {
     background(levelThreeBg);
   }
 
-  zombies();
+  // new zombies
+  zombie.display();
+  
 }
 
-function zombies() {
-  image(zombie1, random(width), height-100, zombieW, zombieH );
+class Zombies{
+  constructor(x,y){
+    this.x = x;
+    this.y = y; 
+    this.width = 100;
+    this.height= 100;
+    this.speed = 5;
+    this.sprites = [zombie1,zombie2,zombie3,zombie4,zombie5,zombie6];
+  }
+
+  display(){
+    let zombieSprite = random(this.sprites);
+    image(zombieSprite ,this.x,this.y,this.width,this.height);
+  }
 }
