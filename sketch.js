@@ -67,7 +67,7 @@ function draw() {
 
   // new zombies
   zombie.display();
-  
+  zombie.moveZombie();
 }
 
 class Zombies{
@@ -83,5 +83,15 @@ class Zombies{
   display(){
     let zombieSprite = random(this.sprites);
     image(zombieSprite ,this.x,this.y,this.width,this.height);
+    
+  }
+
+  moveZombie(){
+    if (this.x > width/2){
+      this.x -= this.speed;
+    }
+    else if (this.x < width/2){
+      this.x += this.speed;
+    }
   }
 }
