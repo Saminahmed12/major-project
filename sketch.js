@@ -34,6 +34,7 @@ let zombie5Flipped;
 let zombie6Flipped;
 
 let zombie;
+let zombieArray = [];
 
 // timer/millis
 let timer = 2000;
@@ -87,8 +88,10 @@ function draw() {
   }
 
   // new zombies
-  zombieSpawner();
+  zombieSpawner(); 
   zombie.moveZombie();
+  zombie.display();
+  console.log(zombieArray);
 }
 
 class Zombies{
@@ -99,7 +102,7 @@ class Zombies{
     this.left = this.x < width/2;
     this.width = 100;
     this.height= 100;
-    this.speed = random(1,3);
+    this.speed = 0.5
     this.sprites = [zombie1,zombie2,zombie3,zombie4,zombie5,zombie6];
     this.spritesFlipped = [zombie1Flipped,zombie2Flipped,zombie3Flipped,zombie4Flipped,zombie5Flipped,zombie6Flipped];
     this.zombieSprite = random(this.sprites);
@@ -129,9 +132,9 @@ class Zombies{
 
 function zombieSpawner(){
 
-  // ?spawn new zombies
+  // spawn new zombies  
   if (timer > millis()){
-    zombie.display();
+    zombieArray.push(zombie); 
     timer += millis();
   }
 }
