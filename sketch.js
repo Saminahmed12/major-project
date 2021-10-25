@@ -141,4 +141,4 @@ function zombieSpawner(){
 
 // cartoon apocalypse backgrounds--> change background pls
 
-// add in gifs
+// add in gifs https://ezgif.com/
