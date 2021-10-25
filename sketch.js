@@ -6,7 +6,7 @@
 // - describe what you did to take this project "above and beyond"
 
 // lvl
-let level = 2; 
+let level = 3; 
 
 // university
 let levelOneBg;
@@ -102,7 +102,7 @@ class Zombies{
     this.left = this.x < width/2;
     this.width = 100;
     this.height= 100;
-    this.speed = 0.5
+    this.speed = 0.5;
     this.sprites = [zombie1,zombie2,zombie3,zombie4,zombie5,zombie6];
     this.spritesFlipped = [zombie1Flipped,zombie2Flipped,zombie3Flipped,zombie4Flipped,zombie5Flipped,zombie6Flipped];
     this.zombieSprite = random(this.sprites);
@@ -138,3 +138,7 @@ function zombieSpawner(){
     timer += millis();
   }
 }
+
+// cartoon apocalypse backgrounds--> change background pls
+
+// add in gifs
