@@ -6,7 +6,7 @@
 // - describe what you did to take this project "above and beyond"
 
 // lvl
-let level = 3; 
+let level = 1; 
 
 // university
 let levelOneBg;
@@ -32,6 +32,18 @@ let zombie3Flipped;
 let zombie4Flipped;
 let zombie5Flipped;
 let zombie6Flipped;
+
+// characters
+let gunManIdle;
+let gunManIdleFlipped;
+
+let gunManRun;
+let gunManRunFlipped;
+
+let gunManShot;
+let gunManShotFlipped;
+
+
 
 let zombie;
 let zombieArray = [];
@@ -62,6 +74,17 @@ function preload() {
   zombie4Flipped = loadImage("assets/zombie4flipped.png");
   zombie5Flipped = loadImage("assets/zombie5flipped.png");
   zombie6Flipped = loadImage("assets/zombie6flipped.png");
+
+
+  // Characters
+  gunManIdle = loadImage("assets/idleGun.gif");
+  gunManIdleFlipped  = loadImage("assets/idleFlippedGun.gif");
+
+  gunManRun = loadImage("assets/runningGun.gif");
+  gunManRunFlipped = loadImage("assets/runningFlippedGun.gif");
+
+  gunManShot = loadImage("assets/shot.gif");
+  gunManShotFlipped = loadImage("assets/shotFlipped.gif");
 
 }
 
@@ -102,7 +125,7 @@ class Zombies{
     this.left = this.x < width/2;
     this.width = 100;
     this.height= 100;
-    this.speed = 0.5;
+    this.speed = 15;
     this.sprites = [zombie1,zombie2,zombie3,zombie4,zombie5,zombie6];
     this.spritesFlipped = [zombie1Flipped,zombie2Flipped,zombie3Flipped,zombie4Flipped,zombie5Flipped,zombie6Flipped];
     this.zombieSprite = random(this.sprites);
@@ -139,6 +162,10 @@ function zombieSpawner(){
   }
 }
 
-// cartoon apocalypse backgrounds--> change background pls
+class Hero{
+
+}
+
+
 
 // add in gifs https://ezgif.com/
