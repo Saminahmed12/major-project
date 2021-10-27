@@ -6,15 +6,13 @@
 // - describe what you did to take this project "above and beyond"
 
 // lvl
-let level = 1; 
+let level = 2; 
 
-// university
+// backgrounds
 let levelOneBg;
 
-// town
 let levelTwoBg;
 
-// trainTracks
 let levelThreeBg;
 
 // zombies
@@ -34,18 +32,19 @@ let zombie5Flipped;
 let zombie6Flipped;
 
 // characters
-let gunManIdle;
-let gunManIdleFlipped;
+let gunMan;
+let gunManFlipped;
 
-let gunManRun;
-let gunManRunFlipped;
+let swordMan;
+let swordManFlipped;
 
-let gunManShot;
-let gunManShotFlipped;
-
+// image state-gunMan
+let gunManRotation = "east";
+let loadout = "firearm";
 
 
 let zombie;
+let hero;
 let zombieArray = [];
 
 // timer/millis
@@ -77,15 +76,11 @@ function preload() {
 
 
   // Characters
-  gunManIdle = loadImage("assets/idleGun.gif");
-  gunManIdleFlipped  = loadImage("assets/idleFlippedGun.gif");
+  gunMan = loadImage("assets/gunMan.gif");
+  gunManFlipped  = loadImage("assets/FlippedGunMan.gif");
 
-  gunManRun = loadImage("assets/runningGun.gif");
-  gunManRunFlipped = loadImage("assets/runningFlippedGun.gif");
-
-  gunManShot = loadImage("assets/shot.gif");
-  gunManShotFlipped = loadImage("assets/shotFlipped.gif");
-
+  swordMan = loadImage("assets/swordMan.gif");
+  swordManFlipped = loadImage("assets/swordManFlipped.gif");
 }
 
 
@@ -95,6 +90,7 @@ function setup() {
   // new zombies
   let leftRight = [0-100, width];
   zombie = new Zombies(random(leftRight),height-90);
+  hero = new Hero(width/2,height-95);
 }
 
 function draw() {
@@ -114,7 +110,11 @@ function draw() {
   zombieSpawner(); 
   zombie.moveZombie();
   zombie.display();
-  console.log(zombieArray);
+  hero.display();
+  hero.move();
+  hero.update();
+  
+  // console.log(zombieArray);
 }
 
 class Zombies{
@@ -125,7 +125,7 @@ class Zombies{
     this.left = this.x < width/2;
     this.width = 100;
     this.height= 100;
-    this.speed = 15;
+    this.speed = 1;
     this.sprites = [zombie1,zombie2,zombie3,zombie4,zombie5,zombie6];
     this.spritesFlipped = [zombie1Flipped,zombie2Flipped,zombie3Flipped,zombie4Flipped,zombie5Flipped,zombie6Flipped];
     this.zombieSprite = random(this.sprites);
@@ -163,9 +163,43 @@ function zombieSpawner(){
 }
 
 class Hero{
+  constructor(x,y){
+    this.x = x;
+    this.y = y; 
+    this.speed = 7;
+    this.width = 100;
+    this.height = 100;
+  }
 
+  display(){
+    if (gunManRotation === "east"){
+      image(gunMan, this.x, this.y, this.width, this.height);
+    }
+    if (gunManRotation === "west"){
+      image(gunManFlipped, this.x, this.y, this.width, this.height);
+    }
+    
+  }
+  update(){
+    if (keyIsDown(68)){
+      gunManRotation = "east";
+    }
+    if (keyIsDown(65)){
+      gunManRotation = "west";
+    }
+  }
+  move(){
+    if (keyIsDown(68)){
+      this.x += this.speed;
+    }
+    if (keyIsDown(65)){
+      this.x -= this.speed;
+    }
+  }
 }
 
 
 
 // add in gifs https://ezgif.com/
+
+// ADD THE SWORD MAN
