@@ -174,10 +174,22 @@ class Hero{
 
   display(){
     if (gunManRotation === "east"){
-      image(gunMan, this.x, this.y, this.width, this.height);
+      if (loadout === "melee"){
+        image(swordMan,this.x,this.y,this.width,this.height);
+      }
+      else if (loadout === "firearm"){
+        image(gunMan, this.x, this.y, this.width, this.height);  
+      }
+      
     }
     if (gunManRotation === "west"){
-      image(gunManFlipped, this.x, this.y, this.width, this.height);
+      if (loadout === "melee"){
+        image(swordManFlipped,this.x,this.y,this.width,this.height);
+      }
+      else if (loadout === "firearm") {
+        image(gunManFlipped, this.x, this.y, this.width, this.height);
+      }
+      
     }
     
   }
