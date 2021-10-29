@@ -106,6 +106,11 @@ function draw() {
   else if (level === 3) {
     background(levelThreeBg);
   }
+  // loadout
+  loadoutSwitch();
+
+  // Background switcher
+  backgroundSwitcher();
 
   // new zombies
   zombieSpawner(); 
@@ -211,8 +216,49 @@ class Hero{
   }
 }
 
+function mousePressed(){
+  // loadout switch
+  if (mouseX > width/14 && mouseX < width/14+100 && mouseY > height/10 && mouseY < height/10+50) {
+    if (loadout === "melee"){
+      loadout = "firearm";
+    }
+    else{
+      loadout = "melee";
+    }
+  }
 
+  // background switch
+  if (mouseX > width/14 && mouseX < width/14+100 && mouseY > height/5 && mouseY < height/5+50) {
+    if (level === 1){
+      level = 2;
+    }
+    else if (level === 2){
+      level = 3;
+    }
+    else {
+      level = 1;
+    }
+  }
+}
 
-// add in gifs https://ezgif.com/
+function loadoutSwitch(){
+  stroke("lightgrey");
+  strokeWeight(4);
+  rect(width/14,height/10, 100,50,10);
+  stroke("lightgrey");
+  strokeWeight(1);
+  textSize(8);
+  text("SWITCH CHARACTER", (width/14+100)/1.9 , height/10+25);
+}
 
-// ADD THE SWORD MAN
+function backgroundSwitcher(){
+  stroke("lightgrey");
+  strokeWeight(4);
+  rect(width/14,height/5, 100,50,10);
+  stroke("lightgrey");
+  strokeWeight(1);
+  textSize(8);
+  text("SWITCH SCENE", (width/14+100)/1.75 , height/5+25);
+}
+
+// display new zombies
