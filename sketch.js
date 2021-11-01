@@ -163,6 +163,9 @@ function zombieSpawner(){
 
   // spawn new zombies  
   if (timer > millis()){
+    let leftRight = [0-100, width];
+    
+    let zombie = new Zombies(random(leftRight),height-90);
     zombieArray.push(zombie); 
     timer += millis();
   }
@@ -248,7 +251,7 @@ function loadoutSwitch(){
   stroke("lightgrey");
   strokeWeight(1);
   textSize(8);
-  text("SWITCH CHARACTER", (width/14+100)/1.9 , height/10+25);
+  text("SWITCH LOADOUT", (width/14+100)/1.9 , height/10+25);
 }
 
 function backgroundSwitcher(){
@@ -259,6 +262,17 @@ function backgroundSwitcher(){
   strokeWeight(1);
   textSize(8);
   text("SWITCH SCENE", (width/14+100)/1.75 , height/5+25);
+}
+
+
+class Bullet{
+  constructor(x,y){
+    this.x = x;
+    this.y = y;
+    this.speed = 0;
+    this.radius = 2;
+
+  }
 }
 
 // display new zombies
