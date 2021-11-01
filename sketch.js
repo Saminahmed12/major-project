@@ -114,8 +114,11 @@ function draw() {
 
   // new zombies
   zombieSpawner(); 
-  zombie.moveZombie();
-  zombie.display();
+  for (let i = 0; i < zombieArray.length; i++){
+    zombieArray[i].moveZombie();
+    zombieArray[i].display();
+  }
+  
   hero.display();
   hero.move();
   hero.update();
@@ -164,10 +167,10 @@ function zombieSpawner(){
   // spawn new zombies  
   if (timer > millis()){
     let leftRight = [0-100, width];
-    
+
     let zombie = new Zombies(random(leftRight),height-90);
     zombieArray.push(zombie); 
-    timer += millis();
+    timer = millis() + 2000; 
   }
 }
 
@@ -271,8 +274,10 @@ class Bullet{
     this.y = y;
     this.speed = 0;
     this.radius = 2;
-
   }
 }
 
 // display new zombies
+
+// beta test
+
