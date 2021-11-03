@@ -165,13 +165,14 @@ class Zombies{
 function zombieSpawner(){
 
   // spawn new zombies  
-  if (timer > millis()){
+  if (timer < millis()){
     let leftRight = [0-100, width];
 
     let zombie = new Zombies(random(leftRight),height-90);
     zombieArray.push(zombie); 
-    timer = millis() + 2000; 
+    timer = millis() + 5000; 
   }
+  console.log(timer);
 }
 
 class Hero{
@@ -274,6 +275,14 @@ class Bullet{
     this.y = y;
     this.speed = 0;
     this.radius = 2;
+  }
+
+  move(){
+
+  }
+
+  display(){
+
   }
 }
 
