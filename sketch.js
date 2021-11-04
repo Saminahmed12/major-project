@@ -170,7 +170,7 @@ function zombieSpawner(){
 
     let zombie = new Zombies(random(leftRight),height-90);
     zombieArray.push(zombie); 
-    timer = millis() + 5000; 
+    timer = millis() + 6500; 
   }
   console.log(timer);
 }
