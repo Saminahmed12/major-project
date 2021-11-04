@@ -10,11 +10,19 @@
 // lvl
 let level = 2; 
 
+// start, in game, or end
+let currentState = "death";
+
 // backgrounds
 let levelOneBg;
 
 let levelTwoBg;
+
 let levelThreeBg;
+
+let startScreen;
+
+let deathScreen;
 
 // zombies
 let zombie1;
@@ -58,6 +66,8 @@ function preload() {
   levelOneBg = loadImage("assets/background1.jpg");
   levelTwoBg = loadImage("assets/background2.jpg");
   levelThreeBg = loadImage("assets/background3.jpg");
+  startScreen = loadImage("assets/startScreen.png");
+  deathScreen = loadImage("assets/deathScreen.png");
 
   // zombies
   zombie1 = loadImage("assets/zombie1.png");
@@ -97,33 +107,44 @@ function setup() {
 function draw() {
 
   // backgroundLevel
-  if (level === 1) {
-    background(levelOneBg);
-  }
-  else if (level === 2) {
-    background(levelTwoBg);
-  }
-  else if (level === 3) {
-    background(levelThreeBg);
-  }
-  // loadout
-  loadoutSwitch();
-
-  // Background switcher
-  backgroundSwitcher();
-
-  // new zombies
-  zombieSpawner(); 
-  for (let i = 0; i < zombieArray.length; i++){
-    zombieArray[i].moveZombie();
-    zombieArray[i].display();
+  if (currentState === "start"){
+    background(startScreen);
   }
   
-  hero.display();
-  hero.move();
-  hero.update();
+  else if (currentState === "game"){
+    if (level === 1) {
+      background(levelOneBg);
+    }
+    else if (level === 2) {
+      background(levelTwoBg);
+    }
+    else if (level === 3) {
+      background(levelThreeBg);
+    }
+    // loadout
+    loadoutSwitch();
+
+    // Background switcher
+    backgroundSwitcher();
+
+    // new zombies
+    zombieSpawner(); 
+    for (let i = 0; i < zombieArray.length; i++){
+      zombieArray[i].moveZombie();
+      zombieArray[i].display();
+    }
   
-  // console.log(zombieArray);
+    hero.display();
+    hero.move();
+    hero.update();
+  
+  }
+
+  else if(currentState === "death"){
+    background(deathScreen);
+  }
+  
+  
 }
 
 class Zombies{
@@ -232,6 +253,15 @@ function mousePressed(){
     else{
       loadout = "melee";
     }
+  }
+  //start
+  if (currentState === "start"){
+    currentState = "game";
+  }
+
+  // restart
+  if (currentState === "death"){
+    currentState === "game";
   }
 
   // background switch
