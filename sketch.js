@@ -11,7 +11,7 @@
 let level = 2; 
 
 // start, in game, or end
-let currentState = "death";
+let currentState = "start";
 
 // backgrounds
 let levelOneBg;
@@ -39,6 +39,10 @@ let zombie3Flipped;
 let zombie4Flipped;
 let zombie5Flipped;
 let zombie6Flipped;
+
+//sounds
+let bgSound;
+let zombieSound;
 
 // collide
 let deathToHero;
@@ -88,6 +92,10 @@ function preload() {
   zombie4Flipped = loadImage("assets/zombie4flipped.png");
   zombie5Flipped = loadImage("assets/zombie5flipped.png");
   zombie6Flipped = loadImage("assets/zombie6flipped.png");
+
+  // sounds
+  bgSound = loadSound("assets/zombieBG.mp3");
+  zombieSound = loadSound("assets/zombieGroans.mp3");
 
 
   // Characters
@@ -185,6 +193,7 @@ class Zombies{
       this.x += this.speed;
     }
   }
+
 }
 
 function zombieSpawner(){
@@ -261,6 +270,11 @@ function mousePressed(){
   //start
   if (currentState === "start"){
     currentState = "game";
+    if (mouseIsPressed){
+      zombieSound.loop();
+      bgSound.loop();
+    }
+    
   }
 
   // restart
@@ -320,20 +334,10 @@ class Bullet{
   }
 }
 
-function death(){
-  deathToHero = collideRectRect(zombie(this.x), zombie(this.y),zombie(this.width),zombie(this.height), hero(this.x), hero(this.y),hero(this.width),hero(this.height));
-  if (deathToHero){
-    currentState = "death";
-  }
-}
-
-function startEndScreen(){
+function death() {
 
 }
 
 function points(){
 
 }
-// display new zombies
-
-// beta test

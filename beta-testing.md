@@ -1,9 +1,11 @@
 # beta testing
 
 
-## 1rd person
-    - stuff to add
+## 1rd person (dad)
+    - start screen
+    - end screen
 
-## 2st person
-    - stuff to add
+## 2st person (sister)
+    - points for killing zombies
+    - noise(groans, slice sound, bullets ect)
 
