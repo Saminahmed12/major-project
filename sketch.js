@@ -40,6 +40,10 @@ let zombie4Flipped;
 let zombie5Flipped;
 let zombie6Flipped;
 
+// collide
+let deathToHero;
+
+
 // characters
 let gunMan;
 let gunManFlipped;
@@ -316,7 +320,20 @@ class Bullet{
   }
 }
 
+function death(){
+  deathToHero = collideRectRect(zombie(this.x), zombie(this.y),zombie(this.width),zombie(this.height), hero(this.x), hero(this.y),hero(this.width),hero(this.height));
+  if (deathToHero){
+    currentState = "death";
+  }
+}
+
+function startEndScreen(){
+
+}
+
+function points(){
+
+}
 // display new zombies
 
 // beta test
-
