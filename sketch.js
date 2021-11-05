@@ -1,11 +1,9 @@
 // Zombie Shooter
 // samin ahmed
 // start 10/19/21
-//
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
-// 
+// ends 11/04/21
 
+// ////////////////////////////////////////////GLOBAL/VARIABLES/////////////////////////////////////////////////////////////
  
 // lvl
 let level = 2; 
@@ -67,6 +65,9 @@ let zombieArray = [];
 // timer/millis
 let timer = 2000;
 
+
+
+////////////////////////////////////////////SETUP///PRELOAD///DRAW/////////////////////////////////////////////////////////////////
 function preload() {
   // preloadImages
 
@@ -159,7 +160,10 @@ function draw() {
   
 }
 
+
+/////////////////////////////////////////////////////CLASSES/////////////////////////////////////////////////////////////////////
 class Zombies{
+  // zombie class
   constructor(x,y){
     this.x = x;
     this.y = y; 
@@ -196,20 +200,10 @@ class Zombies{
 
 }
 
-function zombieSpawner(){
 
-  // spawn new zombies  
-  if (timer < millis()){
-    let leftRight = [0-100, width];
-
-    let zombie = new Zombies(random(leftRight),height-90);
-    zombieArray.push(zombie); 
-    timer = millis() + 6500; 
-  }
-  console.log(timer);
-}
 
 class Hero{
+  // hero
   constructor(x,y){
     this.x = x;
     this.y = y; 
@@ -219,6 +213,7 @@ class Hero{
   }
 
   display(){
+    // rotating hero and loadout change
     if (gunManRotation === "east"){
       if (loadout === "melee"){
         image(swordMan,this.x,this.y,this.width,this.height);
@@ -240,6 +235,7 @@ class Hero{
     
   }
   update(){
+    // rotation
     if (keyIsDown(68)){
       gunManRotation = "east";
     }
@@ -255,6 +251,22 @@ class Hero{
       this.x -= this.speed;
     }
   }
+}
+
+
+
+//////////////////////////////////////////////FUNCTIONS//////////////////////////////////////////////////////////////
+function zombieSpawner(){
+
+  // spawn new zombies  
+  if (timer < millis()){
+    let leftRight = [0-100, width];
+
+    let zombie = new Zombies(random(leftRight),height-90);
+    zombieArray.push(zombie); 
+    timer = millis() + 6500; 
+  }
+  console.log(timer);
 }
 
 function mousePressed(){
@@ -296,7 +308,9 @@ function mousePressed(){
   }
 }
 
+
 function loadoutSwitch(){
+  // button for loadout
   stroke("lightgrey");
   strokeWeight(4);
   rect(width/14,height/10, 100,50,10);
@@ -307,6 +321,7 @@ function loadoutSwitch(){
 }
 
 function backgroundSwitcher(){
+  // button for background
   stroke("lightgrey");
   strokeWeight(4);
   rect(width/14,height/5, 100,50,10);
@@ -316,6 +331,8 @@ function backgroundSwitcher(){
   text("SWITCH SCENE", (width/14+100)/1.75 , height/5+25);
 }
 
+
+// //////////////////////////////////////////////UNFINISHED:(//////////////////////////////////////////////////////////
 
 class Bullet{
   constructor(x,y){
@@ -333,7 +350,6 @@ class Bullet{
 
   }
 }
-
 function death() {
 
 }
